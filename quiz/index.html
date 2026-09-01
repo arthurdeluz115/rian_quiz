@@ -608,7 +608,7 @@ function irPara(indice){
 }
 
 function atualizarProgresso(indice){
-  if (indice === 0){ topbar.classList.add('is-hidden'); definirProgresso(0); return; }
+  if (indice === 0 || indice >= 9){ topbar.classList.add('is-hidden'); definirProgresso(0); return; }
   topbar.classList.remove('is-hidden');
   if (indice >= 8){ definirProgresso(100); return; }
   const passo = Math.min(Math.max(indice - PRIMEIRA_PERGUNTA + 1, 0), TOTAL_PERGUNTAS);
