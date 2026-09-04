@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Presente Secreto HB – Rian Medeiros</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Preconnect para o essencial (fontes + player de vídeo) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://scripts.converteai.net">
+
+<!-- Só os pesos de fonte realmente usados na página (antes eram 4 arquivos / ~160KB só de CSS) -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Montserrat:wght@600;700&family=Roboto:wght@400&display=swap">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- Faixa de urgência -->
+<div class="banner-urgencia">
+	<div class="texto-urgencia-animado">
+		<span>NÃO FECHE OU ATUALIZE ESSA PÁGINA!</span>
+		<br class="quebra-mobile">
+		<span class="cola-cursor"><span id="texto-digitado-vaga"></span></span>
+	</div>
+</div>
+
+<!-- Conteúdo principal -->
+<main class="secao-principal">
+	<h1 class="titulo">Sua compra não foi concluída, Porque eu tenho um <span class="destaque">presente especial</span> esperando por você!</h1>
+
+	<p class="subtitulo">ASSISTA o vídeo abaixo com muita atenção! Será bem rápido.</p>
+
+	<div class="video-wrapper">
+		<vturb-smartplayer id="vid-69b0df50326f38ad99f9541a" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+	</div>
+
+	<a class="btn-cta" href="https://pay.hub.la/Ppp42zH3JjfHnRAHu6HH/upsell">SIM, QUERO PRODUTOS E ANÚNCIOS VALIDADOS!</a>
+
+	<a class="link-recusa" href="https://rianmedeiros.com/downsell-cofre-do-euro-2/">Não quero aproveitar esta oferta</a>
+
+	<p class="aviso-legal">Aviso Legal: Nenhuma informação contida neste produto deve ser interpretada como uma afirmação da obtenção de resultados. Qualquer referência ao desempenho passado ou potencial de uma estratégia abordada no conteúdo não é e não deve ser interpretada como garantia de qualquer resultado específico. Copyright © 2025 Inc. Todos direitos reservados. Rian Medeiros</p>
+</main>
+
+<!-- Player de vídeo (script próprio do widget, carregado assíncrono) -->
+<script>
+	var s = document.createElement("script");
+	s.src = "https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/69b0df50326f38ad99f9541a/v4/player.js";
+	s.async = true;
+	document.head.appendChild(s);
+</script>
+
+<!-- Efeito de digitação (vanilla JS, sem lib externa — antes carregava typed.js de um CDN) -->
+<script>
+(function () {
+	var el = document.getElementById('texto-digitado-vaga');
+	var texto = '[SUA VAGA NÃO FOI CONCLUÍDA]';
+	var i = 0, apagando = false;
+
+	function ciclo() {
+		if (!apagando) {
+			el.textContent = texto.substring(0, i + 1);
+			i++;
+			if (i === texto.length) { apagando = true; setTimeout(ciclo, 2500); return; }
+		} else {
+			el.textContent = texto.substring(0, i - 1);
+			i--;
+			if (i === 0) { apagando = false; setTimeout(ciclo, 500); return; }
+		}
+		setTimeout(ciclo, apagando ? 10 : 50);
+	}
+	setTimeout(ciclo, 500);
+})();
+</script>
+
+<!-- Scripts de tracking/pixel — carregados por último e de forma assíncrona para não travar o LCP -->
+<script>
+window.thPixelId = "e3brREwfEy6tCVzOpsbV";
+var thp = document.createElement("script");
+thp.async = true;
+thp.defer = true;
+thp.src = "https://cdn.trackhunter.com.br/pixel.js";
+document.head.appendChild(thp);
+</script>
+
+<script>
+(function (c, l, a, r, i, t, y) {
+	c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+	t = l.createElement(r); t.async = 1;
+	t.src = "https://www.clarity.ms/tag/" + i + "?ref=wordpress";
+	y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "wwsd7vl9lj");
+</script>
+
+<script>
+!(function (t, r, a, c, k, i, n, g) {
+	a = "mtrt"; c = "script"; k = window; i = document; n = new URL(location); g = n.searchParams;
+	if (k[a]) return;
+	t = "/" + a + "tag.js?id=" + (g.get(a + "id") || t);
+	n.host = "sst." + n.host.replace(/^w{3}\./i, "");
+	[g.get(a + "url") || n.origin].concat(r).reduce(function (w, x) {
+		return w.catch(x ? new Promise(function (y, z) {
+			n = i.createElement(c); n.src = x + t; n.async = !0; n.onload = y; n.onerror = z;
+			g = i.getElementsByTagName(c)[0]; g.parentNode.insertBefore(n, g);
+		}) : Promise.reject());
+	}, Promise.reject());
+	a = k[a] = function () { a.track ? a.track.apply(a, arguments) : a.queue.push(arguments); };
+	a.ver = 1; a.queue = []; k.metrito || (k.metrito = a);
+})("MTC-C3X8NJKK", ["https://api.metrito.com/v2"]);
+</script>
+
+<script>
+!function (f, b, e, v, n, t, s) {
+	if (f.fbq) return;
+	n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+	if (!f._fbq) f._fbq = n;
+	n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+	t = b.createElement(e); t.async = !0; t.src = v;
+	s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+}(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '912832049984658');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"></noscript>
+
+</body>
+</html>
