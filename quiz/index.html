@@ -513,7 +513,7 @@ h2{ font-size:22px; line-height:1.3; }
   <!-- 10 · VSL -->
   <section class="screen" data-screen="10">
     <div class="vsl-player">
-      <vturb-smartplayer id="vid-6a9654161d724813af69f1fb" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: #FFFFFF;"></div></vturb-smartplayer>
+      <vturb-smartplayer id="vid-6a9654161d724813af69f1fb" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
     </div>
   </section>
 
@@ -877,7 +877,7 @@ function montarUrlCheckout(){
 
   new URLSearchParams(window.location.search).forEach((valor, chave) => {
     const k = chave.toLowerCase();
-    if (k.startsWith('utm_') || k === 'fbclid' || k === 'gclid') url.searchParams.set(chave, valor);
+    if (k.startsWith('utm_') || k === 'fbclid' || k === 'gclid' || k === 'vk_source' || k === 'vk_ad_id') url.searchParams.set(chave, valor);
   });
 
   if (CONFIG.passAnswersToCheckout){
