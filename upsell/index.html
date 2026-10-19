@@ -61,6 +61,21 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
 	<p class="aviso-legal">Aviso Legal: Nenhuma informação contida neste produto deve ser interpretada como uma afirmação da obtenção de resultados. Qualquer referência ao desempenho passado ou potencial de uma estratégia abordada no conteúdo não é e não deve ser interpretada como garantia de qualquer resultado específico. Copyright © 2025 Inc. Todos direitos reservados. Rian Medeiros</p>
 </main>
 
+<!-- Repassa UTMs e demais parâmetros da URL para o link de downsell -->
+<script>
+(function () {
+	var params = new URLSearchParams(location.search);
+	if (!params.toString()) return;
+	document.querySelectorAll('a.link-recusa').forEach(function (a) {
+		var url = new URL(a.href);
+		params.forEach(function (v, k) {
+			if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+		});
+		a.href = url.toString();
+	});
+})();
+</script>
+
 <!-- Player de vídeo (script próprio do widget, carregado assíncrono) -->
 <script>
 	var s = document.createElement("script");
