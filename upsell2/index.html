@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Upsell – Cofre do Euro</title>
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="preload" href="https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/69b0df50326f38ad99f9541a/v4/player.js" as="script">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;700&display=swap">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#fff;color:#111;font-family:'Montserrat',sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:24px 16px 40px;text-align:center}
+
+/* Headline */
+.titulo{font-weight:500;font-size:34px;line-height:1.45;max-width:1120px;margin:0 auto}
+.titulo .destaque{background:#48b85b;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* Barra de passos */
+.passos{display:flex;max-width:670px;margin:32px auto 22px;font-family:'Open Sans',sans-serif;font-size:15px;line-height:1.35}
+.passo{flex:1;display:flex;align-items:center;justify-content:center;padding:14px 10px;background:#ececec;border:1px solid #333;color:#222}
+.passo+.passo{border-left:0}
+.passo b{font-weight:700}
+.passo-final{background:linear-gradient(135deg,#6b4a1e 0%,#c9934a 50%,#7a5524 100%);border-color:#7a5524;color:#fff;font-family:'Montserrat',sans-serif;font-weight:800;text-transform:uppercase;font-size:16px;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+
+/* Vídeo */
+.video-wrapper{max-width:1140px;margin:0 auto}
+
+/* Elemento oculto: o vturb exibe no momento configurado no painel */
+.mostrar-elementos{display:none}
+
+/* Link de recusa */
+.link-recusa{display:block;margin-top:28px;color:#333;font-size:16px;font-weight:500;text-decoration:underline}
+
+.aviso-legal{max-width:900px;margin:48px auto 0;font-family:'Open Sans',sans-serif;font-size:12px;line-height:1.5;color:#777}
+
+@media (max-width:767px){
+  .wrap{padding-top:18px}
+  .titulo{font-size:22px}
+  .passos{font-size:12px;margin:22px auto 16px}
+  .passo{padding:10px 6px}
+  .passo-final{font-size:12px}
+  .link-recusa{font-size:14px}
+}
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '912832049984658');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+</head>
+<body>
+
+<main class="wrap">
+
+	<h1 class="titulo">Você Caiu Em Uma Página Secreta. No Vídeo Abaixo Você Vai Receber A <span class="destaque">Maior Oportunidade Da Sua Vida</span>, Mas Seja Rápido!</h1>
+
+	<!-- Barra de passos (edite os textos se quiser) -->
+	<div class="passos">
+		<div class="passo"><span>✅ <b>Passo 1</b>: Vitrine do Dinheiro</span></div>
+		<div class="passo"><span>✅ <b>Passo 2</b>: Acesso Liberado</span></div>
+		<div class="passo passo-final"><span>💶 Passo 3: A Maior Oportunidade De Todas</span></div>
+	</div>
+
+	<div class="video-wrapper">
+		<vturb-smartplayer id="vid-69b0df50326f38ad99f9541a" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+	</div>
+
+	<a class="link-recusa mostrar-elementos" href="https://www.medeirossrian.com/downsell/">Não, eu gostaria de recusar essa oferta</a>
+
+	<p class="aviso-legal">Aviso Legal: Nenhuma informação contida neste produto deve ser interpretada como uma afirmação da obtenção de resultados. Qualquer referência ao desempenho passado ou potencial de uma estratégia abordada no conteúdo não é e não deve ser interpretada como garantia de qualquer resultado específico. Copyright © 2025 Inc. Todos direitos reservados. Rian Medeiros</p>
+</main>
+
+<!-- Repassa UTMs e demais parâmetros da URL para o link de recusa -->
+<script>
+(function () {
+	var params = new URLSearchParams(location.search);
+	if (!params.toString()) return;
+	document.querySelectorAll('a.link-recusa').forEach(function (a) {
+		var url = new URL(a.href);
+		params.forEach(function (v, k) {
+			if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+		});
+		a.href = url.toString();
+	});
+})();
+</script>
+
+<!-- Player vturb do Rian -->
+<script>
+	var s = document.createElement("script");
+	s.src = "https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/69b0df50326f38ad99f9541a/v4/player.js";
+	s.async = true;
+	document.head.appendChild(s);
+</script>
+
+<!-- Tracking (assíncrono, no final) -->
+<script>
+window.thPixelId = "e3brREwfEy6tCVzOpsbV";
+var thp = document.createElement("script");
+thp.async = true;
+thp.defer = true;
+thp.src = "https://cdn.trackhunter.com.br/pixel.js";
+document.head.appendChild(thp);
+</script>
+
+<script>
+(function (c, l, a, r, i, t, y) {
+	c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+	t = l.createElement(r); t.async = 1;
+	t.src = "https://www.clarity.ms/tag/" + i + "?ref=wordpress";
+	y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "wwsd7vl9lj");
+</script>
+
+<script>
+!(function (t, r, a, c, k, i, n, g) {
+	a = "mtrt"; c = "script"; k = window; i = document; n = new URL(location); g = n.searchParams;
+	if (k[a]) return;
+	t = "/" + a + "tag.js?id=" + (g.get(a + "id") || t);
+	n.host = "sst." + n.host.replace(/^w{3}\./i, "");
+	[g.get(a + "url") || n.origin].concat(r).reduce(function (w, x) {
+		return w.catch(x ? new Promise(function (y, z) {
+			n = i.createElement(c); n.src = x + t; n.async = !0; n.onload = y; n.onerror = z;
+			g = i.getElementsByTagName(c)[0]; g.parentNode.insertBefore(n, g);
+		}) : Promise.reject());
+	}, Promise.reject());
+	a = k[a] = function () { a.track ? a.track.apply(a, arguments) : a.queue.push(arguments); };
+	a.ver = 1; a.queue = []; k.metrito || (k.metrito = a);
+})("MTC-C3X8NJKK", ["https://api.metrito.com/v2"]);
+</script>
+
+</body>
+</html>
