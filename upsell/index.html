@@ -76,6 +76,52 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
 })();
 </script>
 
+<!-- Back redirect: ao apertar "voltar", manda para o downsell (mantendo UTMs) -->
+<script>
+(function () {
+	var DESTINO = 'https://www.medeirossrian.com/downsell/';
+
+	// Monta a URL de destino repassando todos os parâmetros da página atual
+	function urlDestino() {
+		var url = new URL(DESTINO);
+		new URLSearchParams(location.search).forEach(function (v, k) {
+			if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+		});
+		return url.toString();
+	}
+
+	var armado = false;
+	function armar() {
+		if (armado) return;
+		armado = true;
+		history.pushState({ br: 1 }, '', location.href);
+		history.pushState({ br: 2 }, '', location.href);
+	}
+
+	window.addEventListener('popstate', function () {
+		location.replace(urlDestino());
+	});
+
+	// Arma já no carregamento...
+	armar();
+
+	// ...e rearma na primeira interação: o Chrome ignora entradas de histórico
+	// criadas sem gesto do usuário, então isso garante que o voltar seja capturado.
+	var rearmado = false;
+	function rearmar() {
+		if (rearmado) return;
+		rearmado = true;
+		history.pushState({ br: 3 }, '', location.href);
+		['click', 'touchstart', 'keydown', 'scroll'].forEach(function (ev) {
+			window.removeEventListener(ev, rearmar, true);
+		});
+	}
+	['click', 'touchstart', 'keydown', 'scroll'].forEach(function (ev) {
+		window.addEventListener(ev, rearmar, { capture: true, passive: true });
+	});
+})();
+</script>
+
 <!-- Player de vídeo (script próprio do widget, carregado assíncrono) -->
 <script>
 	var s = document.createElement("script");
