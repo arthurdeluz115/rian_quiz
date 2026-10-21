@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="preload" href="https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/6ad7efbbe661f216ee2e22ad/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/6ad84c780c4cce62ae97f45f/v4/player.js" as="script">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;700&display=swap">
 
 <style>
@@ -22,6 +22,7 @@ body{background:#fff;color:#111;font-family:'Montserrat',sans-serif;-webkit-font
 /* Headline */
 .titulo{font-weight:500;font-size:34px;line-height:1.45;max-width:1120px;margin:0 auto}
 .titulo .destaque{background:#48b85b;color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.aula{font-weight:800;font-size:26px;line-height:1.35;max-width:1000px;margin:18px auto 0;color:#c0392b;text-transform:uppercase}
 
 /* Barra de passos */
 .passos{display:flex;max-width:670px;margin:32px auto 22px;font-family:'Open Sans',sans-serif;font-size:15px;line-height:1.35}
@@ -44,6 +45,7 @@ body{background:#fff;color:#111;font-family:'Montserrat',sans-serif;-webkit-font
 @media (max-width:767px){
   .wrap{padding-top:18px}
   .titulo{font-size:22px}
+  .aula{font-size:17px;margin-top:12px}
   .passos{font-size:12px;margin:22px auto 16px}
   .passo{padding:10px 6px}
   .passo-final{font-size:12px}
@@ -74,6 +76,7 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
 <main class="wrap">
 
 	<h1 class="titulo">Você Caiu Em Uma Página Secreta. No Vídeo Abaixo Você Vai Receber A <span class="destaque">Maior Oportunidade Da Sua Vida</span>, Mas Seja Rápido!</h1>
+	<p class="aula">AULA 1 - Essa aula determina seu resultado, não pule! É curta e rápida.</p>
 
 	<!-- Barra de passos (edite os textos se quiser) -->
 	<div class="passos">
@@ -83,10 +86,10 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
 	</div>
 
 	<div class="video-wrapper">
-		<vturb-smartplayer id="vid-6ad7efbbe661f216ee2e22ad" style="display:block;margin:0 auto;width:100%;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
+		<vturb-smartplayer id="vid-6ad84c780c4cce62ae97f45f" style="display:block;margin:0 auto;width:100%;"><div class="vturb-player-placeholder" style="position:relative;width:100%;padding:56.25% 0 0;z-index:0;background-color:black;"></div></vturb-smartplayer>
 	</div>
 
-	<a class="link-recusa mostrar-elementos" href="https://www.medeirossrian.com/downsell/">Não, eu gostaria de recusar essa oferta</a>
+	<a class="link-recusa mostrar-elementos" href="https://www.medeirossrian.com/downsell-euroclub/">Não, eu gostaria de recusar essa oferta</a>
 
 	<p class="aviso-legal"></p>
 </main>
@@ -106,10 +109,37 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
 })();
 </script>
 
+<!-- Back redirect: o botão "voltar" leva para o downsell, levando junto a query string -->
+<script>
+(function () {
+	var destino = '/downsell-euroclub/';
+	var armado = false;
+
+	// O Chrome ignora entradas de histórico criadas sem interação do usuário,
+	// então só "armamos" depois de um toque/clique/tecla na página.
+	function armar() {
+		if (armado) return;
+		armado = true;
+		try { history.pushState({ backredirect: true }, '', location.href); } catch (e) {}
+	}
+
+	['pointerdown', 'touchstart', 'keydown', 'click'].forEach(function (ev) {
+		window.addEventListener(ev, armar, { passive: true });
+	});
+
+	window.addEventListener('popstate', function () {
+		if (!armado) return;
+		armado = false;
+		try { if (window.fbq) fbq('trackCustom', 'BackRedirect'); } catch (e) {}
+		location.replace(destino + location.search);   // replace: o "voltar" do downsell não cai de novo aqui
+	});
+})();
+</script>
+
 <!-- Player vturb do Rian -->
 <script>
 	var s = document.createElement("script");
-	s.src = "https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/6ad7efbbe661f216ee2e22ad/v4/player.js";
+	s.src = "https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/6ad84c780c4cce62ae97f45f/v4/player.js";
 	s.async = true;
 	document.head.appendChild(s);
 </script>
