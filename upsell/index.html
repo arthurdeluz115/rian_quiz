@@ -90,34 +90,50 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
 		return url.toString();
 	}
 
-	var armado = false;
-	function armar() {
-		if (armado) return;
-		armado = true;
-		history.pushState({ br: 1 }, '', location.href);
-		history.pushState({ br: 2 }, '', location.href);
+	var redirecionando = false;
+	function redirecionar() {
+		if (redirecionando) return;
+		redirecionando = true;
+		window.location.href = urlDestino();
 	}
 
-	window.addEventListener('popstate', function () {
-		location.replace(urlDestino());
+	// Garante que a entrada atual do histórico é "nossa" e empilha uma cópia por cima
+	function empilhar() {
+		if (!history.state || !history.state.br) {
+			history.replaceState({ br: 'base' }, '', location.href);
+		}
+		history.pushState({ br: 'trava' }, '', location.href);
+	}
+
+	// Qualquer "voltar" dentro da página dispara o redirect
+	window.addEventListener('popstate', redirecionar);
+
+	// Voltou do downsell via cache do navegador: rearma
+	window.addEventListener('pageshow', function (e) {
+		if (e.persisted) { redirecionando = false; }
 	});
 
-	// Arma já no carregamento...
-	armar();
+	// Empilha já no carregamento
+	empilhar();
 
-	// ...e rearma na primeira interação: o Chrome ignora entradas de histórico
-	// criadas sem gesto do usuário, então isso garante que o voltar seja capturado.
-	var rearmado = false;
-	function rearmar() {
-		if (rearmado) return;
-		rearmado = true;
-		history.pushState({ br: 3 }, '', location.href);
-		['click', 'touchstart', 'keydown', 'scroll'].forEach(function (ev) {
-			window.removeEventListener(ev, rearmar, true);
-		});
+	// O Chrome/Safari "pulam" entradas criadas sem interação do usuário.
+	// Por isso empilhamos de novo em CADA interação real (toque, clique, tecla),
+	// com limite para não lotar o histórico. Scroll não conta como interação.
+	var empilhadas = 0;
+	function aoInteragir() {
+		if (empilhadas >= 3) return;
+		empilhadas++;
+		history.pushState({ br: 'trava' }, '', location.href);
 	}
-	['click', 'touchstart', 'keydown', 'scroll'].forEach(function (ev) {
-		window.addEventListener(ev, rearmar, { capture: true, passive: true });
+	['pointerdown', 'touchend', 'click', 'keydown'].forEach(function (ev) {
+		window.addEventListener(ev, aoInteragir, { capture: true, passive: true });
+	});
+
+	// Clique dentro do player (iframe) não chega na página: detecta pelo blur da janela
+	window.addEventListener('blur', function () {
+		setTimeout(function () {
+			if (document.activeElement && document.activeElement.tagName === 'IFRAME') aoInteragir();
+		}, 0);
 	});
 })();
 </script>
