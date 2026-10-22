@@ -211,9 +211,32 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
     box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.7);
   }
 
+  /* ---------- Botão de recusa ---------- */
+  /* Oculto: o vturb exibe no momento configurado no painel */
+  .mostrar-elementos { display: none; }
+
+  .link-recusa {
+    margin-top: 28px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color .2s, border-color .2s, background .2s;
+  }
+  .link-recusa:hover {
+    color: var(--white);
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
   @media (max-width: 480px) {
     main { padding: 48px 16px; }
     .video { margin-top: 32px; }
+    .link-recusa { font-size: 14px; padding: 12px 22px; }
   }
 </style>
 </head>
@@ -239,7 +262,24 @@ src="https://www.facebook.com/tr?id=912832049984658&ev=PageView&noscript=1"
     <div class="video">
       <vturb-smartplayer id="vid-6ada264970c38db34d314c0b" style="display: block; margin: 0 auto; width: 100%; "><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 56.25% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/5c44636d-2807-4c36-8d21-6fb4390eaef0/players/6ada264970c38db34d314c0b/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
     </div>
+
+    <a class="link-recusa mostrar-elementos" href="https://workshopeuro.vercel.app/">Não, eu gostaria de recusar essa oferta</a>
   </main>
+
+  <!-- Repassa UTMs e demais parâmetros da URL para o botão de recusa -->
+  <script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    if (!params.toString()) return;
+    document.querySelectorAll('a.link-recusa').forEach(function (a) {
+      var url = new URL(a.href);
+      params.forEach(function (v, k) {
+        if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+      });
+      a.href = url.toString();
+    });
+  })();
+  </script>
 
 </body>
 </html>
